@@ -28,17 +28,17 @@ export class HarrypotterService {
 
   constructor(private http: HttpClient) {}
 
-  // Obtener todos los personajes
+  // get all charactes
   getAllCharacters(): Observable<Character[]> {
     return this.http.get<Character[]>(`${this.baseUrl}/characters`);
   }
 
-  // Obtener personajes filtrados por casa
+  // get characters by house
   getCharactersByHouse(house: string): Observable<Character[]> {
     return this.http.get<Character[]>(`${this.baseUrl}/characters/house/${house}`);
   }
 
-  // Obtener personaje por nombre (ya que la API no acepta por ID)
+  // get character by name
   getCharacterByName(name: string): Observable<Character | undefined> {
     return new Observable((observer) => {
       this.getAllCharacters().subscribe((characters) => {
