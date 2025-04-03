@@ -59,5 +59,10 @@ Here you can filter by house and see what characters are in each houssse.
 
 The app is deployed on Vercel. You can view it live here: https://101470163-lab-test2-comp3133-ks00yoj5y-qanntus-projects.vercel.app/filter
 
+## Pourpose
+
+This application was created for academic porpuse for George Brown College
+
+
 
 
