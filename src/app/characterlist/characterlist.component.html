@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+    Harry Potter Characters
+    <span class="spacer"></span>
+    <a mat-button routerLink="/filter">Filter by House</a>
+  </mat-toolbar>
+  
+  
+  <div class="container">
+    <div class="character-grid">
+      <a
+        *ngFor="let character of characters"
+        [routerLink]="['/character', character.name]"
+        style="text-decoration: none;"
+      >
+        <mat-card class="character-card">
+          <img
+            mat-card-image
+            [src]="character.image || 'https://via.placeholder.com/300x400?text=No+Image'"
+            alt="{{ character.name }}"
+          />
+          <mat-card-title>{{ character.name }}</mat-card-title>
+          
+          <mat-card-subtitle [ngClass]="'house-' + character.house">
+            {{ character.house || 'No House' }}
+          </mat-card-subtitle>
+          
+          <mat-card-content>
+            <p><strong>Actor:</strong> {{ character.actor }}</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+  </div>
+  

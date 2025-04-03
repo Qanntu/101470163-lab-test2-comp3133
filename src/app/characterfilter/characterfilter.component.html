@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+    Filter Characters by House
+    <span class="spacer"></span>
+    <a mat-button routerLink="/">Back to All characters</a>
+</mat-toolbar>
+  
+
+<div class="filter-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Select House</mat-label>
+    <mat-select [(value)]="selectedHouse" (selectionChange)="filterByHouse()">
+      <mat-option *ngFor="let house of houses" [value]="house">{{ house }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="character-grid">
+  <mat-card *ngFor="let character of characters" class="character-card">
+    <img mat-card-image [src]="character.image" alt="{{ character.name }}">
+
+    <mat-card-title>{{ character.name }}</mat-card-title>
+
+    <mat-card-subtitle [ngClass]="'house-' + character.house">
+        {{ character.house || 'No House' }}
+      </mat-card-subtitle>
+
+    <mat-card-content>
+        <p><strong>Actor:</strong> {{ character.actor }}</p>
+      </mat-card-content>
+  </mat-card>
+</div>
